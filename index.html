@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Birthday Surprise for Suchita</title>
+    <meta name="description" content="A heartfelt interactive 10-page birthday surprise for Suchita." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="viewport-bg">
+      <!-- Persistent MP3 Birthday Music -->
+      <audio id="birthday-audio" src="assets/birthday-music.mp3" loop preload="auto" playsinline></audio>
+
+      <main id="story-stage" class="story-stage theme-page-1" data-page="1">
+        <!-- Top Header: 10 Progress Dots + Music Toggle -->
+        <header class="stage-header">
+          <div id="progress-dots" class="progress-dots" aria-label="Page 1 of 10"></div>
+          <button
+            id="music-toggle-btn"
+            type="button"
+            class="music-pill"
+            aria-label="Toggle birthday music"
+          >
+            <span id="music-eq" class="music-eq hidden" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+            <span id="music-note-icon" aria-hidden="true">♪</span>
+            <span id="music-label">Music</span>
+          </button>
+        </header>
+
+        <!-- Confetti Layer -->
+        <div id="confetti-layer" class="confetti-layer" aria-hidden="true"></div>
+
+        <!-- PAGE 1: Someone Special Has a Surprise -->
+        <section class="story-page active" data-page-section="1">
+          <img src="assets/sprites/cloud_left.png" alt="" aria-hidden="true" class="deco deco-cloud-tl float-slow" />
+          <img src="assets/sprites/star_cute.png" alt="" aria-hidden="true" class="deco deco-star-tr float-gentle" />
+          <img src="assets/sprites/heart_plush.png" alt="" aria-hidden="true" class="deco deco-heart-bl float-gentle" />
+          <img src="assets/sprites/cloud_left.png" alt="" aria-hidden="true" class="deco deco-cloud-br float-slow" />
+
+          <div class="page-head">
+            <p class="script-kicker">a little birthday surprise ✨</p>
+            <h1 class="display-title">Someone special has a surprise for you...</h1>
+          </div>
+
+          <div class="characters-pair">
+            <img
+              src="assets/sprites/teddy_balloon.png"
+              alt="Cute teddy bear wearing a party hat and holding a pink balloon"
+              class="char-teddy float-gentle"
+            />
+            <img
+              src="assets/sprites/bunny_popper.png"
+              alt="Cute white bunny wearing a purple party hat"
+              class="char-bunny float-slow"
+            />
+          </div>
+
+          <div class="page-actions">
+            <button type="button" id="btn-start-surprise" class="btn-3d btn-3d-pink">
+              Open Your Surprise ♡
+            </button>
+          </div>
+        </section>
+
+        <!-- PAGE 2: There's Something for You (3D Envelope) -->
+        <section class="story-page" data-page-section="2">
+          <img src="assets/sprites/cloud_left.png" alt="" aria-hidden="true" class="deco deco-cloud-tl float-slow" />
+          <img src="assets/sprites/star_cute.png" alt="" aria-hidden="true" class="deco deco-star-tr float-gentle" />
+          <img src="assets/sprites/bow_pink.png" alt="" aria-hidden="true" class="deco deco-bow-mr float-slow" />
+          <img src="assets/sprites/heart_plush.png" alt="" aria-hidden="true" class="deco deco-heart-bl float-gentle" />
+          <img src="assets/sprites/cloud_left.png" alt="" aria-hidden="true" class="deco deco-cloud-br float-slow" />
+
+          <div class="page-head">
+            <p class="script-kicker">a little something ✦</p>
+            <h1 class="display-title">
+              There's<br />something <span class="italic-pink">for you</span>
+            </h1>
+            <p class="subtitle">A little birthday surprise awaits...</p>
+          </div>
+
+          <div id="envelope-stage" class="envelope-stage">
+            <div class="envelope-card">
+              <span class="card-for">for</span>
+              <span class="card-name">Suchita</span>
+            </div>
+            <div class="envelope-flap">
+              <svg viewBox="0 0 262 112" aria-hidden="true">
+                <path d="M4 4 L131 106 L258 4 Z" fill="#F6E2C5" stroke="#DFC39F" stroke-width="2" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <img
+              src="assets/sprites/envelope_closed.png"
+              alt="Cream floral envelope with lavender ribbon and heart wax seal"
+              class="envelope-body"
+            />
+            <img src="assets/sprites/teddy_gift.png" alt="Teddy bear holding a gift" class="envelope-teddy" />
+            <img src="assets/sprites/bunny_popper.png" alt="Cute white bunny" class="envelope-bunny" />
+          </div>
+
+          <div class="page-actions">
+            <button type="button" id="btn-open-envelope" class="btn-3d btn-3d-pink">
+              <span class="heart-badge" aria-hidden="true">♥</span>
+              <span id="envelope-btn-text">Open the Envelope ♡</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- PAGE 3: Secret Password -->
+        <section class="story-page" data-page-section="3">
+          <div id="sunburst-glow" class="sunburst-glow" aria-hidden="true"></div>
+          <div class="bulb-fixture" aria-hidden="true">
+            <div class="bulb-cord"></div>
+            <div class="bulb-cap"></div>
+            <div id="bulb-glass" class="bulb-glass"></div>
+          </div>
+          <img src="assets/sprites/moon_sleep.png" alt="" aria-hidden="true" class="deco deco-moon float-slow" />
+          <img src="assets/sprites/teddy_pray.png" alt="" aria-hidden="true" class="deco deco-sleep-bear" />
+
+          <div class="page-head dark-head">
+            <p class="script-gold">Shhh...</p>
+            <h1 class="display-title white-title">Only someone special knows the secret.</h1>
+          </div>
+
+          <form id="password-form" class="password-form" novalidate>
+            <div id="password-box" class="password-box">
+              <label for="secret-input" class="password-label">🔒 Enter Secret Code</label>
+              <input
+                id="secret-input"
+                type="text"
+                inputmode="numeric"
+                autocomplete="off"
+                maxlength="8"
+                placeholder="••••"
+                class="password-input"
+              />
+              <p id="password-error" class="password-error" role="alert"></p>
+            </div>
+            <button type="submit" id="btn-unlock" class="btn-3d btn-3d-gold">
+              Unlock Your Surprise ✨
+            </button>
+          </form>
+          <div class="spacer"></div>
+        </section>
+
+        <!-- PAGE 4: Happy Birthday, Suchita! -->
+        <section class="story-page" data-page-section="4">
+          <div class="bunting-wrap" aria-hidden="true">
+            <svg viewBox="0 0 420 90">
+              <path d="M-5 12 Q210 64 425 12" fill="none" stroke="#B49A8E" stroke-width="1.8" />
+              <path d="M-5 8 Q210 72 425 8" fill="none" stroke="#C7A994" stroke-width="2.2" />
+              <polygon points="10,12 42,16 24,48" fill="#F9A8B8" stroke="#FFFDF9" />
+              <polygon points="52,18 84,22 65,54" fill="#CDBBF4" stroke="#FFFDF9" />
+              <polygon points="94,25 126,28 108,60" fill="#FDE08B" stroke="#FFFDF9" />
+              <polygon points="136,31 168,33 150,65" fill="#B4DFCC" stroke="#FFFDF9" />
+              <polygon points="178,34 210,35 194,67" fill="#FBF0D9" stroke="#FFFDF9" />
+              <polygon points="220,34 252,33 236,66" fill="#F7A9B8" stroke="#FFFDF9" />
+              <polygon points="262,31 294,28 278,61" fill="#D3C1F5" stroke="#FFFDF9" />
+              <polygon points="304,25 336,21 321,54" fill="#FDE08B" stroke="#FFFDF9" />
+              <polygon points="346,18 378,14 364,47" fill="#B4DFCC" stroke="#FFFDF9" />
+              <polygon points="386,12 414,8 402,42" fill="#F9B8C4" stroke="#FFFDF9" />
+            </svg>
+          </div>
+
+          <div class="page-head celebration-head">
+            <p class="script-kicker">Look who's having a birthday...</p>
+            <h1 class="display-title">
+              Happy Birthday,<br />
+              <span class="italic-pink underline-gold">Suchita! 🎀</span>
+            </h1>
+            <p class="subtitle">Today is all about you, Sunshine.</p>
+            <div class="mt-4">
+              <button type="button" id="btn-celebrate" class="btn-3d btn-3d-pink">
+                Let's Celebrate ♡
+              </button>
+            </div>
+          </div>
+
+          <div class="celebration-scene">
+            <div class="blush-floor" aria-hidden="true"></div>
+            <img src="assets/sprites/balloons_left.png" alt="" aria-hidden="true" class="cel-bal-left float-slow" />
+            <img src="assets/sprites/balloons_right.png" alt="" aria-hidden="true" class="cel-bal-right float-gentle" />
+            <div class="pastel-table" aria-hidden="true">
+              <div class="table-top"></div>
+              <div class="table-skirt"></div>
+              <div class="table-legs"><span></span><span></span></div>
+            </div>
+            <img src="assets/sprites/gift_box.png" alt="" aria-hidden="true" class="cel-gift" />
+            <img src="assets/sprites/bouquet_table.png" alt="" aria-hidden="true" class="cel-bouquet" />
+            <img src="assets/sprites/teddy_balloon.png" alt="Teddy bear celebrating" class="cel-teddy float-gentle" />
+            <img src="assets/sprites/bunny_popper.png" alt="White bunny with party popper" class="cel-bunny float-slow" />
+          </div>
+        </section>
+
+        <!-- PAGE 5: Cake Cutting -->
+        <section class="story-page" data-page-section="5">
+          <img src="assets/sprites/star_cute.png" alt="" aria-hidden="true" class="deco deco-star-tr float-gentle" />
+          <img src="assets/sprites/heart_plush.png" alt="" aria-hidden="true" class="deco deco-heart-br float-slow" />
+
+          <div class="page-head">
+            <p class="script-kicker">Cake time</p>
+            <h1 id="cake-title" class="display-title">Make the first cut ✨</h1>
+            <p id="cake-sub" class="subtitle">Tap the button or swipe down across the cake.</p>
+          </div>
+
+          <div id="cake-stage" class="cake-stage">
+            <svg viewBox="0 0 280 250" class="cake-svg" role="img" aria-label="Birthday cake">
+              <defs>
+                <clipPath id="v-cake-left"><rect x="0" y="0" width="140" height="250" /></clipPath>
+                <clipPath id="v-cake-right"><rect x="140" y="0" width="140" height="250" /></clipPath>
+              </defs>
+              <ellipse cx="140" cy="222" rx="122" ry="16" fill="#EDE4DF" />
+              <ellipse cx="140" cy="218" rx="122" ry="14" fill="#FFFDFB" />
+              <g id="cake-slice-inside" opacity="0">
+                <rect x="128" y="96" width="24" height="122" rx="3" fill="#FFF4DC" />
+                <rect x="128" y="106" width="24" height="8" fill="#FF92B2" />
+                <rect x="128" y="128" width="24" height="10" fill="#FDE08D" />
+                <rect x="128" y="150" width="24" height="14" fill="#D8CCF6" />
+                <rect x="128" y="176" width="24" height="9" fill="#FF92B2" />
+              </g>
+              <g id="cake-half-left" clip-path="url(#v-cake-left)" class="cake-half">
+                <rect x="38" y="164" width="204" height="54" rx="14" fill="#FFF9F3" />
+                <path d="M38 164 Q38 154 52 154 H228 Q242 154 242 164 V183 Q232 192 222 183 Q212 194 200 183 Q188 193 176 183 Q164 193 152 183 Q140 193 128 183 Q116 193 104 183 Q92 194 80 183 Q68 193 56 183 Q46 192 38 183 Z" fill="#FF94B6" />
+                <rect x="64" y="114" width="152" height="44" rx="12" fill="#E3D9FB" />
+                <path d="M64 114 Q64 106 76 106 H204 Q216 106 216 114 V130 Q206 138 196 130 Q186 140 174 130 Q162 139 150 130 Q140 139 128 130 Q116 140 104 130 Q92 139 80 130 Q70 138 64 130 Z" fill="#FFFFFF" />
+                <rect x="88" y="70" width="104" height="38" rx="10" fill="#FDE6A6" />
+                <path d="M88 70 Q88 63 98 63 H182 Q192 63 192 70 V84 Q182 91 174 84 Q165 92 156 84 Q147 91 138 84 Q129 92 120 84 Q111 91 102 84 Q94 90 88 84 Z" fill="#FF94B6" />
+                <circle cx="98" cy="60" r="6" fill="#F4537B" />
+                <circle cx="122" cy="60" r="6" fill="#F4537B" />
+              </g>
+              <g id="cake-half-right" clip-path="url(#v-cake-right)" class="cake-half">
+                <rect x="38" y="164" width="204" height="54" rx="14" fill="#FFF9F3" />
+                <path d="M38 164 Q38 154 52 154 H228 Q242 154 242 164 V183 Q232 192 222 183 Q212 194 200 183 Q188 193 176 183 Q164 193 152 183 Q140 193 128 183 Q116 193 104 183 Q92 194 80 183 Q68 193 56 183 Q46 192 38 183 Z" fill="#FF94B6" />
+                <rect x="64" y="114" width="152" height="44" rx="12" fill="#E3D9FB" />
+                <path d="M64 114 Q64 106 76 106 H204 Q216 106 216 114 V130 Q206 138 196 130 Q186 140 174 130 Q162 139 150 130 Q140 139 128 130 Q116 140 104 130 Q92 139 80 130 Q70 138 64 130 Z" fill="#FFFFFF" />
+                <rect x="88" y="70" width="104" height="38" rx="10" fill="#FDE6A6" />
+                <path d="M88 70 Q88 63 98 63 H182 Q192 63 192 70 V84 Q182 91 174 84 Q165 92 156 84 Q147 91 138 84 Q129 92 120 84 Q111 91 102 84 Q94 90 88 84 Z" fill="#FF94B6" />
+                <circle cx="158" cy="60" r="6" fill="#F4537B" />
+                <circle cx="182" cy="60" r="6" fill="#F4537B" />
+              </g>
+              <g id="cake-candles"></g>
+              <g id="cake-cut-guide">
+                <line x1="140" y1="28" x2="140" y2="205" stroke="#9D8C93" stroke-width="2" stroke-dasharray="5 5" opacity="0.7" />
+                <g id="cake-handle" transform="translate(140, 52)">
+                  <circle r="14" fill="#F25484" opacity="0.22" />
+                  <circle r="9.5" fill="#F25484" stroke="#FFFFFF" stroke-width="2.5" />
+                  <circle r="3.5" fill="#FFFFFF" />
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="page-actions">
+            <button type="button" id="btn-cut-cake" class="btn-3d btn-3d-pink">
+              Cut the Cake 🎂
+            </button>
+            <button type="button" id="btn-cake-next" class="btn-3d btn-3d-pink hidden">
+              What's Next? ♡
+            </button>
+          </div>
+        </section>
+
+        <!-- PAGE 6: Make a Wish -->
+        <section class="story-page" data-page-section="6">
+          <div class="wish-visuals">
+            <div id="wish-halo" class="wish-halo" aria-hidden="true"></div>
+            <img src="assets/sprites/teddy_pray.png" alt="Teddy bear making a wish" class="wish-teddy float-gentle" />
+            <img src="assets/sprites/cake_strawberry.png" alt="Strawberry birthday cake" class="wish-cake" />
+          </div>
+
+          <div class="page-head">
+            <h1 id="wish-title" class="display-title">Close your eyes...</h1>
+            <p id="wish-sub" class="subtitle">Make a little birthday wish in your heart.</p>
+          </div>
+
+          <div class="page-actions">
+            <button type="button" id="btn-make-wish" class="btn-3d btn-3d-pink">
+              Make a Wish ♡
+            </button>
+          </div>
+        </section>
+
+        <!-- PAGE 7: Pop All Four Balloons -->
+        <section class="story-page" data-page-section="7">
+          <img src="assets/sprites/star_cute.png" alt="" aria-hidden="true" class="deco deco-star-tr float-gentle" />
+
+          <div class="page-head">
+            <p class="script-kicker">tap each balloon 🎈</p>
+            <h1 id="balloon-title" class="display-title small-title">
+              A little surprise is waiting inside each balloon...
+            </h1>
+          </div>
+
+          <div id="balloons-grid" class="balloons-grid"></div>
+
+          <div class="page-actions">
+            <p id="balloon-count-text" class="subtitle small-sub">0 of 4 balloons popped</p>
+            <button type="button" id="btn-balloons-next" class="btn-3d btn-3d-pink hidden">
+              Let's Look at Some Sweet Moments ♡
+            </button>
+          </div>
+        </section>
+
+        <!-- PAGE 8: Some Sweet Moments (3 Photographs) -->
+        <section class="story-page" data-page-section="8">
+          <div class="page-head">
+            <img src="assets/sprites/camera_pastel.png" alt="" aria-hidden="true" class="cam-icon float-gentle" />
+            <h1 class="display-title small-title">Some Sweet Moments</h1>
+            <p id="photo-counter" class="subtitle small-sub">Swipe left or right · 1 / 3</p>
+          </div>
+
+          <div id="photo-deck" class="photo-deck"></div>
+
+          <div class="photo-nav">
+            <button type="button" id="btn-photo-prev" class="circle-nav" aria-label="Previous photograph">‹</button>
+            <div id="photo-dots" class="photo-dots"></div>
+            <button type="button" id="btn-photo-next" class="circle-nav" aria-label="Next photograph">›</button>
+          </div>
+
+          <div class="page-actions photo-actions">
+            <p id="photo-after-hint" class="script-kicker hidden">There's still something for you...</p>
+            <button type="button" id="btn-read-letter" class="btn-3d btn-3d-pink hidden">
+              Read Your Message 💌
+            </button>
+            <p id="photo-swipe-hint" class="subtitle small-sub">Swipe through all 3 memories to continue</p>
+          </div>
+        </section>
+
+        <!-- PAGE 9: For You, Sunshine (Letter) -->
+        <section class="story-page" data-page-section="9">
+          <div class="letter-wrap">
+            <img src="assets/sprites/bow_letter.png" alt="" aria-hidden="true" class="letter-bow" />
+            <img src="assets/sprites/bouquet_letter.png" alt="" aria-hidden="true" class="letter-bouquet" />
+
+            <article class="letter-card">
+              <div class="letter-dashed-border" aria-hidden="true"></div>
+              <p class="script-kicker">a letter, just for you</p>
+              <h1 class="display-title letter-heading">
+                For you, <span class="italic-pink">Suchita...</span>
+              </h1>
+              <svg viewBox="0 0 180 12" class="wavy-line" aria-hidden="true">
+                <path d="M2 6 Q 16 1, 30 6 T 58 6 T 86 6 T 114 6 T 142 6 T 170 6" fill="none" stroke="#F5D061" stroke-width="3" stroke-linecap="round" />
+              </svg>
+
+              <div id="letter-body" class="letter-body">
+                <p class="letter-salutation">Dear Suchita,</p>
+                <p>Today is a special day because someone as beautiful and wonderful as you came into this world.</p>
+                <p>I hope your birthday brings you countless reasons to smile, endless happiness and beautiful memories that you will cherish forever.</p>
+                <p>Never stop smiling, never stop dreaming, and never forget how special you are.</p>
+                <p>May every little wish in your heart find its way to becoming reality. May you always be surrounded by love, kindness and people who genuinely care about you.</p>
+                <p>Keep shining, Sunshine. The world deserves to see that beautiful smile of yours.</p>
+                <p>And remember, you are someone truly special. ♡</p>
+                <div class="letter-signoff">
+                  <p class="script-sign">With love, Bablu</p>
+                  <p class="sign-sub">A little birthday surprise for you.</p>
+                </div>
+              </div>
+              <img src="assets/sprites/star_cute.png" alt="" aria-hidden="true" class="letter-star" />
+            </article>
+          </div>
+
+          <div class="page-actions">
+            <button type="button" id="btn-one-last-thing" class="btn-3d btn-3d-pink">
+              One Last Thing... ♡
+            </button>
+          </div>
+        </section>
+
+        <!-- PAGE 10: Final Birthday Surprise -->
+        <section class="story-page" data-page-section="10">
+          <img src="assets/sprites/heart_plush.png" alt="" aria-hidden="true" class="deco deco-heart-tl float-gentle" />
+          <img src="assets/sprites/balloons_left.png" alt="" aria-hidden="true" class="deco final-bal-left float-slow" />
+          <img src="assets/sprites/balloons_right.png" alt="" aria-hidden="true" class="deco final-bal-right float-gentle" />
+          <img src="assets/sprites/star_cute.png" alt="" aria-hidden="true" class="deco final-star float-gentle" />
+
+          <div class="final-teddy-wrap">
+            <img src="assets/sprites/teddy_balloon.png" alt="Cute teddy bear holding pink balloon" class="final-teddy float-gentle" />
+          </div>
+
+          <div class="page-head">
+            <h1 class="display-title">
+              Happy Birthday,<br /><span class="italic-pink">Suchita! 🎂</span>
+            </h1>
+            <p class="subtitle final-quote">
+              Keep smiling, keep shining, and always stay the beautiful Sunshine you are.
+            </p>
+            <p class="script-sign-final">— with love, Bablu</p>
+          </div>
+
+          <div class="page-actions">
+            <button type="button" id="btn-replay" class="btn-3d btn-3d-cream">
+              Replay Your Surprise ♡
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
